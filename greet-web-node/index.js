@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 app.get("/", (req, res) => {
-    res.render("visitor", { title: "Home", greetServiceUrl: process.env.GREET_NODE_SERVICE });
+    res.render("visitor", { title: "Home", greetServiceUrl: process.env.GREET_EXT_SERVICE });
 });
 
 

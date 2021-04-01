@@ -5,12 +5,12 @@ metadata:
     namespace: default
     labels:
         name: greeter-web
-        app: greeter-node-app
+        app: greet-app
 spec:
     type: LoadBalancer
     selector:
         name: greeter-web-pod
-        app: greeter-node-app
+        app: greet-app
     ports:
         - port: 80
           targetPort: 80

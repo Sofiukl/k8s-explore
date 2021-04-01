@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greeter-deployment
+  name: greeter-ext-deployment
   namespace: default
   labels:
-    name: greeter-deployment
-    app: greeter-node-app
+    name: greeter-ext-deployment
+    app: greeter-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: greeter-pod
-      app: greeter-node-app
+      name: greeter-ext-pod
+      app: greeter-app
   template:
     metadata:
-      name: greeter-pod
+      name: greeter-ext-pod
       namespace: default
       labels:
-        name: greeter-pod
-        app: greeter-node-app
+        name: greeter-ext-pod
+        app: greet-app
     spec:
       containers:
-        - name: greeter-container
-          image: greeter:v2
+        - name: greeter-ext-container
+          image: greeter-ext:v1
           imagePullPolicy: Never
           ports:
             - containerPort: 3001
           env: 
-            - name: HELLO_K8S_NODE_APP
+            - name: GREETER_CORE_SERVICE
               value: http://192.168.64.2:30576/name?name=

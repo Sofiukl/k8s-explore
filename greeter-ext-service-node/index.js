@@ -10,7 +10,7 @@ app.use(cors());
 app.get('/:name', (req, res) => {
     let name = req.params.name;
     if (name) {
-        let serviceUrl = `${process.env.HELLO_K8S_NODE_APP}${name}`;
+        let serviceUrl = `${process.env.GREETER_CORE_SERVICE}${name}`;
         console.log(`Calling ${serviceUrl}`);
 
         axios.get(serviceUrl)

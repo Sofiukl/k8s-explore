@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: greeter-service
+    name: greeter-ext-service
     namespace: default
     labels:
-        name: greeter-service
-        app: greeter-node-app
+        name: greeter-ext-service
+        app: greet-app
 spec:
     type: NodePort
     selector:
-        name: greeter-pod
-        app: greeter-node-app
+        name: greeter-ext-pod
+        app: greet-app
     ports:
         - port: 3001
     

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: greet-core-service
+    namespace: default
+    labels:
+        name: greet-core-service
+        app: greet-app
+spec:
+    type: NodePort
+    selector:
+        name: greet-core-pod
+        app: greet-app
+    ports:
+        - port: 3000
+    
