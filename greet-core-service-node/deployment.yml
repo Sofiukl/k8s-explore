@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hellok8snodeapp
+  name: hellok8snodeapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hellok8snodeapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hellok8snodeapp
+    spec:
+      containers:
+      - image: hello-k8s-node-app
+        name: hello-k8s-node-app
+        imagePullPolicy: Never
+        resources: {}
+        ports:
+          - containerPort: 3000 
+status: {}

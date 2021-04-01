@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeter-web
+  namespace: default
+  labels:
+    name: greeter-web
+    app: greeter-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: greeter-web-pod
+      app: greeter-node-app
+  template:
+    metadata:
+      name: greeter-web-pod
+      namespace: default
+      labels:
+        name: greeter-web-pod
+        app: greeter-node-app
+    spec:
+      containers:
+        - name: greeter-web-container
+          image: greeter-web:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          env:
+            - name: GREET_NODE_SERVICE
+              value: http://192.168.64.2:30772/

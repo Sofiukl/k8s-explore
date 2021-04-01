@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-k8s-node-app-pod
+spec:
+  containers:
+    - image: hello-k8s-node-app
+      name: hello-k8s-node-app
+      imagePullPolicy: Never
+      resources: {}
+      ports:
+        - containerPort: 3000

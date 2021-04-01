@@ -1,0 +1,8 @@
+body {
+  background: aqua;
+}
+
+.WelcomeView {
+  background: url("food.jpg") left bottom;
+  background-size: cover;
+}

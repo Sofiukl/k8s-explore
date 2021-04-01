@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js'
+           integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+           crossorigin='anonymous')
+           
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+           integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous')
+    h1= "Visitor Details!"
+    form(id="visit-form")
+    p Name:
+      input(type="text" name="name" id="name" placeholder="Visitor Name")
+    button(type="button" id="visit-register") Register
+    div(id="msg")
+    script.
+        $(document).ready(function(){
+            $("#visit-register").click(function(e){
+                e.preventDefault();
+
+                var name = $("#name").val();
+                var url = `#{greetServiceUrl}${name}`;
+                console.log(url);
+
+                $.ajax({
+                    url: url,
+                    success: function(data){
+                        $("#msg").text('You have recorded successfully');
+                    },
+                    error: function(err) {
+                        $("#msg").text('We are sorry, some internal error occurrd at this moment!');
+                    }
+                });
+            });
+        });
