@@ -5,12 +5,12 @@ metadata:
     namespace: default
     labels:
         name: mongo-service
-        app: hello-k8s-node-app
+        app: greet-app
 spec:
     type: ClusterIP
     selector:
         name: mongo-pod
-        app: hello-k8s-node-app
+        app: greet-app
     ports:
         - port: 27017
     

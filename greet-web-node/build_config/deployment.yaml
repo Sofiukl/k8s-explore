@@ -22,10 +22,9 @@ spec:
     spec:
       containers:
         - name: greeter-web-container
-          image: greeter-web:v1
-          imagePullPolicy: Never
+          image: gcr.io/k8s-explore-309407/greeter-web:v1
           ports:
             - containerPort: 8000
           env:
             - name: GREET_EXT_SERVICE
-              value: http://192.168.64.2:30772/
+              value: http://34.123.254.83:3001/

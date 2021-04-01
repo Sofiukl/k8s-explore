@@ -7,7 +7,7 @@ metadata:
         name: greeter-ext-service
         app: greet-app
 spec:
-    type: NodePort
+    type: LoadBalancer
     selector:
         name: greeter-ext-pod
         app: greet-app
