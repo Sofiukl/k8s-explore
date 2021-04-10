@@ -12,5 +12,5 @@ spec:
         name: greet-core-pod
         app: greet-app
     ports:
-        - port: 3000
+        - port: 3005
     

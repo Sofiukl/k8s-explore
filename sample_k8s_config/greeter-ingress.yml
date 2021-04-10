@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: greeter-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /greet
+        backend:
+          serviceName: greet-core-service
+          servicePort: 3005

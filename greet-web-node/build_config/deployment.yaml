@@ -22,7 +22,8 @@ spec:
     spec:
       containers:
         - name: greeter-web-container
-          image: gcr.io/k8s-explore-309407/greeter-web:v1
+          image: greeter-web:v1
+          imagePullPolicy: Never
           ports:
             - containerPort: 8000
           env:

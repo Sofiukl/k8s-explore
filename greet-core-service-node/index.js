@@ -6,7 +6,7 @@ const url = require('url');
 const mongoose = require('mongoose');
 const Visitors = require('./models/visitor');
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3005
 const dbUrl = process.env.MONGO_CONNECTION;
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
@@ -45,6 +45,10 @@ const server = http.createServer((req, res) => {
 
     if (pathname === '/') {
         res.end(`<h1>Hello k8s</h1>`)
+    }
+
+    if (pathname === '/greet') {
+        res.end(`<h1>Hello k8s greet</h1>`)
     }
 });
 

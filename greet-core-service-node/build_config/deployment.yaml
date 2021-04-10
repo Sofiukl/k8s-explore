@@ -21,6 +21,7 @@ spec:
         spec:
             containers:
                 - name: greet-core-container
-                  image: gcr.io/k8s-explore-309407/greet-core:v1
+                  image: greet-core:v1
+                  imagePullPolicy: Never
                   ports: 
-                    - containerPort: 3000
+                    - containerPort: 3005
